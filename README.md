@@ -1,4 +1,4 @@
-# spam-asm x86_64
+# spam-asm x86
 
 A Rust procedural macro that adds 5-20 lines of random assembly between every line of code you've written. This helps you create polymorphic executables that are really good at passing exact-comparisons, and are obfuscated to a degree.
 
