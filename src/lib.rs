@@ -67,7 +67,7 @@ fn get_useless_block() -> TokenStream {
         asm_calls += format!("\"{}\",", op).as_str();
     }
 
-    let block = format!("unsafe {{std::arch::asm!({})}}", asm_calls);
+    let block = format!("unsafe {{core::arch::asm!({})}}", asm_calls);
 
     println!("{}", block);
 
