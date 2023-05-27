@@ -3,11 +3,17 @@ use proc_macro::TokenStream;
 use rand::{seq::SliceRandom, Rng};
 use syn::{Expr, Item, Stmt};
 
-const SAFE_REGS_32: &[&str] = &["eax", "ebx", "ecx", "edx", "edi", "ebp"]; // esi isn't good
-const SAFE_REGS_8: &[&str] = &["ah", "bh", "ch", "dh", "al", "bl", "cl", "dl"];
+const SAFE_REGS_32: &[&str] = &[
+    "eax", "ebx", "ecx", "edx", 
+    "edi", "ebp"
+]; // esi isn't good
+const SAFE_REGS_8: &[&str] = &[
+    "ah", "bh", "ch", "dh", 
+    "al", "bl", "cl", "dl"
+];
 const SAFE_REGS_MM: &[&str] = &[
-    "mm0", "mm1", "mm2", "mm3", "mm4", "mm5", "mm6", "mm7", "xmm0", "xmm1", "xmm2", "xmm3", "xmm4",
-    "xmm5", "xmm6", "xmm7",
+     "mm0",  "mm1",  "mm2",  "mm3",  "mm4",  "mm5",  "mm6",  "mm7", 
+    "xmm0", "xmm1", "xmm2", "xmm3", "xmm4", "xmm5", "xmm6", "xmm7",
 ];
 
 const OPS_ALL: &[&str] = &[
